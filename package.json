@@ -1,0 +1,27 @@
+{
+  "name": "adventofcode-2017",
+  "version": "1.0.0",
+  "description": "Advent of code 2017 challenge solutions",
+  "main": "01/app1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusro/AdventOfCode-2017.git"
+  },
+  "keywords": [
+    "advent",
+    "code",
+    "2017"
+  ],
+  "author": "Matheus Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matheusro/AdventOfCode-2017/issues"
+  },
+  "homepage": "https://github.com/matheusro/AdventOfCode-2017#readme",
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
+  }
+}
