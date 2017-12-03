@@ -18,13 +18,13 @@ rl.on('close', function(){
 
 function getDifferenceFromLine(line){
     var lineValues = line.split(/\s|\t/);
-    return Array.max(lineValues) - Array.mix(lineValues);
+    return Array.max(lineValues) - Array.min(lineValues);
 }
 
 Array.max = function(arrayValue){
     return Math.max.apply(this, arrayValue);
 }
 
-Array.mix = function(arrayValue){
+Array.min = function(arrayValue){
     return Math.min.apply(this, arrayValue);
 }
