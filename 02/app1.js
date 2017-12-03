@@ -1,30 +1,30 @@
+var readline = require('readline');
 var fs = require('fs');
-var inputFile = "";
-var inputLen = 0;
+
+var inputFileName = 'input.txt';
 var result = 0;
 
-fs.readFile("input.txt", "utf8", function(error, contents){
-    if(error){
-        return console.log(error);
-    }
-
-    inputFile = contents;
-    inputLen = inputFile.length;
-
-    for (var i = 0; i < inputLen; i++) {
-        var halfwayPos = halfwayPosition(inputLen, i);
-        if(inputFile.charAt(i) == inputFile.charAt(halfwayPos)) result += parseInt(inputFile.charAt(i));
-    }
-    console.log(result);
+var rl = readline.createInterface({
+    input: fs.createReadStream(inputFileName)
 });
 
-function halfwayPosition(inputLen, inputPos){    
-    var halfway = (inputLen / 2);
+rl.on('line', function(line){
+    result += getDifferenceFromLine(line);
+});
 
-    if(inputPos > halfway - 1){
-        return inputPos - halfway; 
-    }else{
-        return inputPos + halfway;
-    }
+rl.on('close', function(){
+    console.log("Result:",result);
+});
 
+function getDifferenceFromLine(line){
+    var lineValues = line.split(/\s|\t/);
+    return Array.max(lineValues) - Array.mix(lineValues);
+}
+
+Array.max = function(arrayValue){
+    return Math.max.apply(this, arrayValue);
+}
+
+Array.mix = function(arrayValue){
+    return Math.min.apply(this, arrayValue);
 }

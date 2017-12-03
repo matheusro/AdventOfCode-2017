@@ -23,5 +23,8 @@
   "homepage": "https://github.com/matheusro/AdventOfCode-2017#readme",
   "devDependencies": {
     "eslint-config-google": "^0.9.1"
+  },
+  "dependencies": {
+    "eslint": "^4.12.1"
   }
 }
