@@ -7,3 +7,6 @@ Solutions to the challenges for the [Advent of code 2017](http://adventofcode.co
 * [Day 2: Corruption Checksum](/02/)
   * [Part 1](/02/app1.js)
   * [Part 2](/02/app2.js)
+* [Day 2: Corruption Checksum](/03/)
+  * [Part 1](/03/app1.js)
+  * [Part 2](/03/app2.js)
