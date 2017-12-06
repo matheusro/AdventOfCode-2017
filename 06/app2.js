@@ -1,14 +1,19 @@
 var fs = require('fs');
 var inputFile = "input.txt";
+var memoryBlocks = [];
 
 fs.readFile(inputFile, "utf8", function(error, contents){
-    result = balanceBank(contents);
+    memoryBlocks = contents.split(/\s|\t/);
+    
+    for(var i=0;i<2;i++){        
+        result = balanceBank();
+    }
+    
     console.log("Result:", result);
 });
 
-function balanceBank(memoryBank){
+function balanceBank(){
     var hasKnownState = false
-    var memoryBlocks = memoryBank.split(/\s|\t/);
     var memoryStates = [];
     var result = 0;
 
@@ -21,11 +26,15 @@ function balanceBank(memoryBank){
         
         for(var i=0;i<balanceSteps;i++){
             currentPosition = getNextPosition(memoryBlocks, currentPosition);
-            memoryBlocks[currentPosition] ++;            
+            memoryBlocks[currentPosition] ++;
         }
         
         hasKnownState =  isKnownState(memoryStates, getMemoryState(memoryBlocks));
-        memoryStates.push(getMemoryState(memoryBlocks));
+        if(!hasKnownState){
+            memoryStates.push(getMemoryState(memoryBlocks));
+            result++;
+        }
+     
     }
     return result;
 }
